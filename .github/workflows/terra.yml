@@ -45,7 +45,7 @@ jobs:
                 soft_fail: true
 
             - name: Terraform Plan
-              if: github.event_name == 'pull_request'
+              if: github.event_name == 'pull_request' && github.event.action == 'open'
               run: terraform plan
 
             - name: Terraform Apply
